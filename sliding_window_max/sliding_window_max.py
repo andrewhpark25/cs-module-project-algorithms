@@ -2,11 +2,15 @@
 Input: a List of integers as well as an integer `k` representing the size of the sliding window
 Returns: a List of integers
 '''
+
 def sliding_window_max(nums, k):
     # Your code here
+      
+        result = [0] * (len(nums) - k + 1)
+        for i in range(len(nums) - k + 1):
+            result[i] = max(nums[i:i + k])
 
-    pass
-
+        return result
 
 if __name__ == '__main__':
     # Use the main function here to test out your implementation 

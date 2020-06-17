@@ -4,8 +4,22 @@ Returns: a List of integers
 '''
 def moving_zeroes(arr):
     # Your code here
+    
+    # arrays to hold non-0s and 0s
+    nonZeroes = []
+    zeroes = []
 
-    pass
+    # iterate through arr and append non-0s to nonZeroes array
+    for i in arr:
+        if i != 0:
+            nonZeroes.append(i)
+            # append 0s to zeroes array
+        else:
+            zeroes.append(i)
+            # join them in new array newArr
+    newArr = nonZeroes + zeroes
+    
+    return newArr
 
 
 if __name__ == '__main__':
