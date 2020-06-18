@@ -3,19 +3,20 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # first-pass solution
-    # array to hold numbers from arr
-    no_dups = []
-    # iterate through arr, check if number is already in no_dups
-    for x in arr:
-        if x not in no_dups:
-            no_dups.append(x)
-    # remove it from array if in no_dups
-        else:
-            no_dups.remove(x)
-    # return the only number left in no_dups after iterating 
+    # keep track of counts of particular number
+    counts = {}
 
-    return no_dups[0]
+    # loop through arr to tally up each number
+    for i in arr:
+        if i in counts:
+         del counts[i]
+        else:
+            counts[i] = 1
+            
+    # loop through all of the key-value pairs in counts to find the one pair that has value of 1
+    for num in counts:
+        if counts[num] == 1:
+            return num 
 
 if __name__ == '__main__':
     # Use the main function to test your implementation

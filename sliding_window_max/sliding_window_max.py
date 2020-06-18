@@ -3,14 +3,22 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 
+
 def sliding_window_max(nums, k):
-    # Your code here
-      
+
         result = [0] * (len(nums) - k + 1)
-        for i in range(len(nums) - k + 1):
-            result[i] = max(nums[i:i + k])
+        result[0] = max(nums[:k])
+        for i in range(1, len(nums) - k + 1):
+                if nums[i-1] == result[i-1]:
+                    result[i] = max(nums[i:i + k])
+                else:
+                    result[i] = max(result[i-1], nums[i+k-1])
 
         return result
+    
+    
+            
+
 
 if __name__ == '__main__':
     # Use the main function here to test out your implementation 

@@ -3,17 +3,27 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
-    newArr = []
-    for num in arr:
-     result = 1
-    for i in arr:
-        if num != i:
-            result = result * i
+    # multiply everything that comes before on the way up and everything that come after on way back
 
-        newArr.append(result)
+        # set result to list of 1s that's the length of arr
+        result = [1] * len(arr)
+        # instantiate product that tells everything multiplied before the number
+        product = 1
 
-    return newArr
+        # keep track of index
+        for i in range(len(arr)):
+             # multiply result array by product and set it to the element
+            result[i] *= product
+            # product multiplies by the element in num
+            product *= arr[i] 
+        # reset product to 1 
+        product = 1
+        # do same as first for loop but go through array backwards
+        for i in range(len(arr) - 1, -1, -1):
+            result[i] *= product
+            product *= arr[i] 
+        
+        return result
 
 if __name__ == '__main__':
     # Use the main function to test your implementation

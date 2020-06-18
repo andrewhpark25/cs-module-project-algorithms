@@ -3,23 +3,20 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def moving_zeroes(arr):
-    # Your code here
-    
-    # arrays to hold non-0s and 0s
-    nonZeroes = []
-    zeroes = []
 
-    # iterate through arr and append non-0s to nonZeroes array
-    for i in arr:
-        if i != 0:
-            nonZeroes.append(i)
-            # append 0s to zeroes array
-        else:
-            zeroes.append(i)
-            # join them in new array newArr
-    newArr = nonZeroes + zeroes
+    count = 0 # Counting non-zeroes
+
+   # Traverse array and swap non-zero element at index 'count' with element at index 'i'
+
+
+    for i in range(0, len(arr)):
+        if arr[i] != 0:
+            arr[count], arr[i] = arr[i], arr[count]
+            count += 1
+   
+
+    return arr
     
-    return newArr
 
 
 if __name__ == '__main__':
